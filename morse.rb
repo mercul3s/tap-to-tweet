@@ -1,3 +1,8 @@
+require 'debugger'
+require 'serialport'
+require 'twitter'
+load 'twitter_creds.rb'
+# morse code dashes and dots stored as zeros and ones
 # . = 0
 # - = 1
 
@@ -29,3 +34,29 @@ morse = {
     1011 => 'y',
     1100 => 'z'
 }
+
+# params for serial port
+# we may need to change these (esp port_str)
+# to match the board we have
+
+# port_str  = ""
+# baud_rate = 9600
+# data_bits = 8
+# stop_bits = 1
+# parity    = SerialPort::None
+
+# sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)  
+
+# debugger;1
+# setup twitter API credentials
+Twitter.configure do |config|
+    config.consumer_key       = CONSUMER_KEY
+    config.consumer_secret    = CONSUMER_SECRET
+    config.oauth_token        = ACCESS_TOKEN
+    config.oauth_token_secret = ACCESS_TOKEN_SECRET
+    # debugger;1
+end
+
+Twitter.update("Test")
+
+# loop to read serial port data
