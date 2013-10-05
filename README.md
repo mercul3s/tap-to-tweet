@@ -1,0 +1,1 @@
+The arduino will be responsible for reading input from a simple pushbutton switch. We'll start out by writing to an LED; once we figure out how to interact with some python code, we'll send the signal from the switch to our program. Our python program will then read the signals, translate them to characters, and post the resulting text to twitter.
