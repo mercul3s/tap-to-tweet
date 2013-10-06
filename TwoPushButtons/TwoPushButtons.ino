@@ -18,7 +18,7 @@ void setup() {
   pinMode (LED2, OUTPUT);
   pinMode (BUTTON2, OUTPUT);
   Serial.begin(9600);
-  Serial.println("Starting output")
+  Serial.println("Starting output");
 }
 
 void loop(){
