@@ -43,13 +43,13 @@ morse = {
 # we may need to change these (esp port_str)
 # to match the board we have
 
-# port_str  = ""
-# baud_rate = 9600
-# data_bits = 8
-# stop_bits = 1
-# parity    = SerialPort::None
+port_str  = "/dev/tty.usbserial-AD01TF8U"
+baud_rate = 9600
+data_bits = 8
+stop_bits = 1
+parity    = SerialPort::NONE
 
-# sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)  
+sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)  
 
 # debugger;1
 # setup twitter API credentials
@@ -61,8 +61,8 @@ Twitter.configure do |config|
     # debugger;1
 end
 
-begin
-    Twitter.update("Test")
-rescue => e
-    puts e
-end
+# begin
+#     Twitter.update("Test")
+# rescue => e
+#     puts e
+# end

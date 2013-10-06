@@ -15,6 +15,10 @@ int val2 = 0;          // val will be used to store the state
 void setup() {
   pinMode (LED, OUTPUT);    //tell Arduino LED is an output
   pinMode (BUTTON, INPUT);  //and BUTTON is an input
+  pinMode (LED2, OUTPUT);
+  pinMode (BUTTON2, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Starting output")
 }
 
 void loop(){
@@ -23,11 +27,13 @@ void loop(){
   //check whether the input is HIGH (button pressed)
   if (val == HIGH) {
     digitalWrite(LED, HIGH); //turn LED on
+    Serial.println("Button one pressed");
   } else {
     digitalWrite(LED, LOW);
   }
   if (val2 == HIGH) {
     digitalWrite(LED2, HIGH); //turn LED on
+    Serial.println("Button two pressed");
   } else {
     digitalWrite(LED2, LOW);
   }
