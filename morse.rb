@@ -33,7 +33,9 @@ morse = {
     1001 => 'x',
     1011 => 'y',
     1100 => 'z',
-    010101 => "Full-Stop"
+    010101 => "Full-Stop / period",
+    1000101 => "Break / space",
+    01010 => "End of message"
 }
 
 
