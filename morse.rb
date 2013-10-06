@@ -61,7 +61,7 @@ Twitter.configure do |config|
   config.oauth_token_secret = ACCESS_TOKEN_SECRET
 end
 
-def get_input
+def get_input_old
   while true do
     # get input from arduino. Input is defined as Serial.println("string" | number) 
     char = @sp.getc
@@ -120,5 +120,12 @@ def tweet(sentence)
   end
 end
 
+def get_input
+  while true do
+    # get input from arduino. Input is defined as Serial.println("string" | number) 
+    char = @sp.getc
+    tweet('IS THIS THING ON?')
+  end
+end
 
 get_input

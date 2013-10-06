@@ -28,7 +28,6 @@ void setup() {
 }
 
 void loop() {
-  
   valStart = digitalRead(BUTTON); //read input value and store it
   if (valStart != buttonStateLast) 
 //  Serial.println(valStart);
@@ -44,19 +43,20 @@ void loop() {
 //     Serial.println(timePressed);
      if (1 <= timePressed <= shortPress) {
 //       digitalWrite(LED, HIGH);
-       Serial.println(0);
+       Serial.println('000|111|000');
        timePressed = 0;
      }
 
      if (shortPress <= timePressed <= longPress) {
        digitalWrite(LED2, HIGH);
-       Serial.println(1);
+//       Serial.println(1);
        timePressed = 0;
      }
    }
    
    buttonStateLast = valStart;
    }
+  
 }   
      
      
