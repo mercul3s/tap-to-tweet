@@ -4,7 +4,7 @@
 const int LED = 13;       //the pin for the LED
 const int BUTTON = 7;     //the input pin where
                           //pushbutton is connected
-int ledState = HIGH;     // the current state of the output pin
+int ledState = LOW;     // the current state of the output pin
 int buttonState;            // the current reading from the input pin
 int lastButtonState = LOW; // the previous reading from the input pin
 
@@ -25,6 +25,8 @@ int val2 = 0;          // val will be used to store the state
 void setup() {
   pinMode (LED, OUTPUT);    //tell Arduino LED is an output
   pinMode (BUTTON, INPUT);  //and BUTTON is an input
+  digitalWrite(LED, ledState);
+  
   pinMode (LED2, OUTPUT);
   pinMode (BUTTON2, INPUT);
   Serial.begin(9600);
@@ -36,7 +38,7 @@ void loop(){
   //check whether the input is HIGH (button pressed)
   
   // If the switch changed, due to noise or pressing:
-  if (val == lastButtonState) {
+  if (val != lastButtonState) {
     // reset the debouncing timer
     lastDebounceTime = millis();
   }
@@ -56,22 +58,28 @@ void loop(){
     }
   }
   
-  if (val == HIGH) {
-    digitalWrite(LED, HIGH); //turn LED on
-    // check for length of button press
-    // if short:
-    Serial.println(0);
-    // if long:
-    // Serial.println(1)
-    // Serial.println("Button one pressed");
-    // debouncing code
-    // check for second button press
-    // if second button press:
-    // Serial.println("space")
-    
-  } else {
-    digitalWrite(LED, LOW);
-  }
+  digitalWrite(LED, ledState);
+  Serial.println(0);
+  
+  // set the LED:
+  lastButtonState = val;
+  
+//  if (val == HIGH) {
+//    digitalWrite(LED, HIGH); //turn LED on
+//    // check for length of button press
+//    // if short:
+//    Serial.println(0);
+//    // if long:
+//    // Serial.println(1)
+//    // Serial.println("Button one pressed");
+//    // debouncing code
+//    // check for second button press
+//    // if second button press:
+//    // Serial.println("space")
+//    
+//  } else {
+//    digitalWrite(LED, LOW);
+//  }
   if (val2 == HIGH) {
     digitalWrite(LED2, HIGH); //turn LED on
     Serial.println(1);
