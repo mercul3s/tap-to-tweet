@@ -71,6 +71,10 @@ def get_input
     # on our arduino, which would translate to a zero and one. @morse_code_letter
     # would then be '01'.
     # all input read from serial is a string, so evaluate it as such.
+
+    # change the if elsif statements to case statements
+    # add in full stop (wind sensor?) as instruction when to tweet
+    
     if char == "0" or char == "1"
       @morse_code_letter << char.to_s
       puts @morse_code_letter
