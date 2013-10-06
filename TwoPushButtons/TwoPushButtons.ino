@@ -1,16 +1,26 @@
 
 // Turn on LED while button is pressed
 
-const int LED = 13;   //the pin for the LED
-const int BUTTON = 7; //the input pin where
-                      //pushbutton is connected
-int val = 0;          // val will be used to store the state
-                      //of the input pin
+const int LED = 13;       //the pin for the LED
+const int BUTTON = 7;     //the input pin where
+                          //pushbutton is connected
+int ledState = HIGH;     // the current state of the output pin
+int buttonState;            // the current reading from the input pin
+int lastButtonState = LOW; // the previous reading from the input pin
+
+// the following variables are long's because the time, measured in milliseconds,
+// will quickly become a bigger number than can be stored in an int.
+long lastDebounceTime = 0;  // the last time the output pin was toggled
+long debounceDelay = 50;   // the debounce time; increase if the output flickers
+
 const int LED2 = 12;   //the pin for the LED
 const int BUTTON2 = 4; //the input pin where
                       //pushbutton is connected
+int val = 0;          // val will be used to store the state
+                      //of the input pin
 int val2 = 0;          // val will be used to store the state
                       //of the input pin
+                      
 
 void setup() {
   pinMode (LED, OUTPUT);    //tell Arduino LED is an output
@@ -24,6 +34,28 @@ void loop(){
   val = digitalRead(BUTTON); //read input value and store it
   val2 = digitalRead(BUTTON2); //read input value of button 2 and store it
   //check whether the input is HIGH (button pressed)
+  
+  // If the switch changed, due to noise or pressing:
+  if (val == lastButtonState) {
+    // reset the debouncing timer
+    lastDebounceTime = millis();
+  }
+  
+  if ((millis() - lastDebounceTime) > debounceDelay) {
+    // whatever the reading is at, it's been there for longer
+    // than the debounce delay, so take it as the actual current state:
+    
+    // if the button state has changed:
+    if ( val != buttonState) {
+      buttonState = val;
+      
+      // only toggle the LED if the new button state is HIGH
+      if (buttonState == HIGH) {
+        ledState = !ledState;
+      }
+    }
+  }
+  
   if (val == HIGH) {
     digitalWrite(LED, HIGH); //turn LED on
     // check for length of button press
