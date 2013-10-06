@@ -35,7 +35,7 @@ load 'twitter_creds.rb'
   "1011"    => 'y',
   "1100"    => 'z',
   "010101"  => "Full-Stop / period",
-              # space
+  # space
   "1000101" => " ",
   "01010"   => "End of message"
 }

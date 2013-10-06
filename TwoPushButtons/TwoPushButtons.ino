@@ -16,7 +16,7 @@ void setup() {
   pinMode (LED, OUTPUT);    //tell Arduino LED is an output
   pinMode (BUTTON, INPUT);  //and BUTTON is an input
   pinMode (LED2, OUTPUT);
-  pinMode (BUTTON2, OUTPUT);
+  pinMode (BUTTON2, INPUT);
   Serial.begin(9600);
 }
 
