@@ -27,7 +27,17 @@ void loop(){
   //check whether the input is HIGH (button pressed)
   if (val == HIGH) {
     digitalWrite(LED, HIGH); //turn LED on
+    // check for length of button press
+    // if short:
+    // Serial.println(0)
+    // if long:
+    // Serial.println(1)
     Serial.println("Button one pressed");
+    // debouncing code
+    // check for second button press
+    // if second button press:
+    // Serial.println("space")
+    
   } else {
     digitalWrite(LED, LOW);
   }

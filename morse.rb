@@ -2,6 +2,7 @@ require 'debugger'
 require 'serialport'
 require 'twitter'
 load 'twitter_creds.rb'
+
 # morse code dashes and dots stored as zeros and ones
 # . = 0
 # - = 1
@@ -38,10 +39,10 @@ morse = {
     01010 => "End of message"
 }
 
+morse_code_letter = ""
+morse_tweet       = ""
 
 # params for serial port
-# we may need to change these (esp port_str)
-# to match the board we have
 
 port_str  = "/dev/tty.usbserial-AD01TF8U"
 baud_rate = 9600
@@ -51,18 +52,31 @@ parity    = SerialPort::NONE
 
 sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)  
 
-# debugger;1
-# setup twitter API credentials
+# setup twitter API credentials (in secret!)
 Twitter.configure do |config|
     config.consumer_key       = CONSUMER_KEY
     config.consumer_secret    = CONSUMER_SECRET
     config.oauth_token        = ACCESS_TOKEN
     config.oauth_token_secret = ACCESS_TOKEN_SECRET
-    # debugger;1
 end
 
-# begin
-#     Twitter.update("Test")
-# rescue => e
-#     puts e
-# end
+# check input from arduino
+#
+# 
+def parse_morse_code
+    # while input is between 0 and 1
+    # add input to morse_code_letter
+    # else
+    # lookup morse_code_letter in morse dictionary
+    # append morse code letter to morse_tweet
+    # clear morse_code_letter
+    # start again at the top of the loop
+end
+
+def tweet
+    begin
+        Twitter.update("Test")
+    rescue => e
+        puts e
+    end
+end
