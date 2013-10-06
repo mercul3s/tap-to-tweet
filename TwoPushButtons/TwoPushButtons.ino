@@ -18,7 +18,6 @@ void setup() {
   pinMode (LED2, OUTPUT);
   pinMode (BUTTON2, OUTPUT);
   Serial.begin(9600);
-  Serial.println("Starting output");
 }
 
 void loop(){
@@ -29,10 +28,10 @@ void loop(){
     digitalWrite(LED, HIGH); //turn LED on
     // check for length of button press
     // if short:
-    // Serial.println(0)
+    Serial.println(0);
     // if long:
     // Serial.println(1)
-    Serial.println("Button one pressed");
+    // Serial.println("Button one pressed");
     // debouncing code
     // check for second button press
     // if second button press:
@@ -43,7 +42,12 @@ void loop(){
   }
   if (val2 == HIGH) {
     digitalWrite(LED2, HIGH); //turn LED on
-    Serial.println("Button two pressed");
+    Serial.println(1);
+    // Serial.println("Button two pressed");
+    // if short:
+    // Serial.println("|")
+    // if long: 
+    // Serial.println("*")
   } else {
     digitalWrite(LED2, LOW);
   }
