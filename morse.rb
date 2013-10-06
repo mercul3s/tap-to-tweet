@@ -57,6 +57,9 @@ Twitter.configure do |config|
     # debugger;1
 end
 
-Twitter.update("Test")
-
+begin
+    Twitter.update("Test")
+rescue => e
+    puts e
+end
 # loop to read serial port data
