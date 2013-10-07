@@ -43,7 +43,7 @@ void loop() {
 //     Serial.println(timePressed);
      if (1 <= timePressed <= shortPress) {
 //       digitalWrite(LED, HIGH);
-       Serial.println('000|111|000');
+       Serial.println('pressed');
        timePressed = 0;
      }
 

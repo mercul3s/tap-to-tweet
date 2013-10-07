@@ -124,7 +124,7 @@ def get_input
   while true do
     # get input from arduino. Input is defined as Serial.println("string" | number) 
     char = @sp.getc
-    tweet('IS THIS THING ON?')
+    tweet('HELLO WORLD')
   end
 end
 
