@@ -1,2 +1,4 @@
 twitter_creds.sh
 twitter_creds.rb
+settings.py
+*.pyc
