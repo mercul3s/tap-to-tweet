@@ -5,6 +5,53 @@ const int BUTTON = 7;
 int ledState = LOW;         // the default state of the output pin
 int buttonState;            // the current reading from the input pin
 int lastButtonState = LOW;  // the previous reading from the input pin, defaults to LOW
+int morse_code[] = {
+  // Alphabet
+  ".-",     // A
+  "-...",   // B
+  "-.-.",   // C
+  "-..",    // D
+  ".",      // E
+  "..-.",   // F
+  "--.",    // G
+  "....",   // H
+  "..",     // I
+  ".---",   // J
+  "-.-",    // K
+  ".-..",   // L
+  "--",     // M
+  "-.",     // N
+  "---",    // O
+  ".--.",   // P
+  "--.-",   // Q
+  ".-.",    // R
+  "...",    // S
+  "-",      // T
+  "..-",    // U
+  "...-",   // V
+  ".--",    // W
+  "-..-",   // X
+  "-.--",   // Y
+  "--..",   // Z
+  // Numbers
+  "-----",  // 0
+  ".----",  // 1
+  "..---",  // 2
+  "...--",  // 3
+  "....-",  // 4
+  ".....",  // 5
+  "-....",  // 6 
+  "--...",  // 7
+  "---..",  // 8
+  "----.",  // 9
+  // Punctuation
+  "·----",  // .
+  "---...", // :
+  "-.-.-.", // ;
+  "-...-",  // =
+  "..--..", // ?
+  ".--._.", // @
+}
 
 // the following variables are long because the time, measured in milliseconds,
 // will quickly become a bigger number than can be stored in an int.
