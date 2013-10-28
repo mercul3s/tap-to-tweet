@@ -1,6 +1,7 @@
 #include <LiquidCrystal.h>
 
-const int LED = 13;         
+const int LED = 13;   
+// interrupt pin is pin 2      
 const int BUTTON = 2;      
 int ledState = LOW;         // the default state of the output pin
 int buttonState;            // the current reading from the input pin
